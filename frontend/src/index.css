@@ -1,0 +1,297 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --background-color: white;
+  --text-color: black;
+  --card-background-color: #f9f9f9;
+  --card-text-color: black;
+}
+
+/* Dark Mode */
+[data-theme="dark"] {
+  --background-color: black;
+  --text-color: white;
+  --card-background-color: #333333;
+  --card-text-color: white;
+}
+
+/* Global Styles */
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  color: #0284C7;
+  padding: 10px 20px;
+}
+
+.logo {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.logo-img {
+  font-size: 32px;
+  text-align: center;
+}
+
+.nav-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.nav-buttons button {
+  margin-left: 10px;
+  padding: 10px 15px;
+  background-color: #555;
+  color: #0284C7;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  
+  /* Center content */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-buttons button:hover {
+  background-color: #777;
+}
+
+/* Hamburger Button */
+.hamburger {
+  display: none;
+  font-size: 32px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #0284C7;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav-buttons {
+    display: none;
+    flex-direction: row;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: #333;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    gap: 10px;
+    z-index: 1000;
+  }
+
+  .nav-buttons.open {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+
+
+/* Center the container */
+.create-product-container {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+height: 100vh; /* Full height of the screen */
+width: 100%;   /* Full width of the screen */
+}
+
+/* Style the form */
+#create-product-container form {
+width: 50%; /* Occupy 50% of the screen width */
+max-width: 600px;
+min-width: 300px;
+background-color: #fff; /* White background */
+padding: 20px;
+border-radius: 8px;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+}
+
+/* Form fields styling */
+.form-group input {
+width: 100%;
+max-width: 600px;
+min-width: 300px;
+padding: 10px;
+margin: 10px 0;
+border: 1px solid #ccc;
+border-radius: 4px;
+}
+
+/* Button styling */
+.btn {
+background-color: #007bff; /* Bootstrap blue color */
+color: white;
+padding: 10px 15px;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+font-size: 16px;
+width: 100%;
+}
+
+.btn:hover {
+background-color: #0056b3; /* Darker blue on hover */
+}
+
+.row {
+display: flex;
+flex-wrap: wrap; /* Ensures wrapping for responsiveness */
+gap: 16px; /* Adds space between the cards */
+}
+
+.column {
+flex: 1 1 calc(33.33% - 16px); /* Adjust the percentage for the desired number of columns */
+max-width: calc(33.33% - 16px);
+box-sizing: border-box;
+}
+
+.card {
+background-color: var(--card-background-color);
+color: var(--card-text-color);
+border: 1px solid black;
+border-radius: 8px;
+margin-top: 20px;
+padding: 16px;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+text-align: left;
+transition: transform 0.2s;
+position: relative; /* Ensure it stays below the menu */
+z-index: 1;
+}
+
+.card p {
+margin-top: 5px;
+font-weight: bold;
+}
+
+.card button {
+margin-top: 5px;
+
+}
+.card img {
+max-width: 100%;
+height: auto;
+border-radius: 8px;
+}
+
+.card:hover {
+transform: scale(1.05);
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+.column {
+  flex: 1 1 calc(50% - 16px);
+  max-width: calc(50% - 16px);
+}
+}
+
+@media (max-width: 480px) {
+.column {
+  flex: 1 1 100%;
+  max-width: 100%;
+}
+}
+
+.edit-button {
+padding: 8px;
+background-color: #0284C7;
+border-radius: 8px;
+border: none;
+cursor: pointer;
+}
+
+.edit-button:hover {
+background-color: #ccc;
+}
+
+.delete-button {
+padding: 8px;
+background-color: #FB7185;
+border-radius: 8px;
+border: none;
+cursor: pointer;
+margin-left: 5px;
+}
+
+.delete-button:hover {
+background-color: #ccc;
+}
+
+.sub-heading {
+margin-top: 20px;
+}
+
+.sub-heading a {
+font-size: 16px;
+text-decoration: underline;
+display: inline;
+}
+.home {
+text-align: center;
+margin-top: 10px;
+}
+
+.modal {
+position: fixed;
+top: 0;
+left: 0;
+width: 100vw;
+height: 100vh;
+background-color: rgba(0, 0, 0, 0.5);
+display: flex;
+justify-content: center;
+align-items: center;
+z-index: 1000;
+}
+
+.modal-content {
+position: relative;
+}
+
+.modal-actions {
+display: flex;
+justify-content: flex-end;
+margin-top: 1rem;
+}
+
+.update-button,
+.cancel-button {
+margin-left: 0.5rem;
+padding: 0.5rem 1rem;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+}
+
+.update-button {
+background-color: #4caf50;
+color: #fff;
+}
+
+.cancel-button {
+background-color: #f44336;
+color: #fff;
+}
